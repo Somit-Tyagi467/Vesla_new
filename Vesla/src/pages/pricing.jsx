@@ -89,16 +89,20 @@ const Pricing = () => {
                 backgroundRepeat: 'no-repeat',
             }}>
 
-                <Heading heading="Welcome to Vesla" highlight="The Future of Water Monitoring" subtitle="Empowering healthcare with AI-driven solutions for better patient outcomes and operational efficiency." size="7xl"/>
+                <Heading heading="Welcome to Vesla" highlight="The Future of Water Monitoring" subtitle="Empowering healthcare with AI-driven solutions for better patient outcomes and operational efficiency." size="lg"/>
                 
             </section>
 
             
             <section className='bg-[radial-gradient(ellipse_at_bottom,rgba(29,185,255,0.22),rgba(0,0,0,1))] py-10 pt-0 flex justify-center items-center min-h-screen '>
+
                 <PricingLoader/>
+
             </section>
             <section className='py-10 flex flex-col justify-center items-center min-h-screen bg-[radial-gradient(ellipse_at_top,rgba(29,185,255,0.22),rgba(0,0,0,1))]'>
+
                 <Heading heading="Frequently Asked" highlight="Questions" subtitle="Expert financial planning tailored to your unique goals and achieve financial peace of mind with our proven strategies."/>
+                
             </section>
             <section></section>
             <section></section>

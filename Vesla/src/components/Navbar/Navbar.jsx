@@ -29,7 +29,7 @@ export default function Navbar() {
       {/* CENTER: Menu */}
       <div className="hidden md:flex items-center gap-8 text-white/90">
         <Link to="/" className="hover:text-white transition">Home</Link>
-        <Link to="/#" className="hover:text-white transition">Benefits</Link>
+        <Link to="/about" className="hover:text-white transition">Benefits</Link>
         <Link to="/pricing" className="hover:text-white transition">Pricing</Link>
         <Link to="/dashboard" className="hover:text-white transition">Dashboard</Link>
         <a href="#" className="hover:text-white transition flex items-center gap-1">

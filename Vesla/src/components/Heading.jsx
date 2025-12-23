@@ -1,10 +1,16 @@
                 
                 
-const Heading = ({ heading, subtitle, highlight ,size="5xl" }) => {
+const Heading = ({ heading, subtitle, highlight ,size="md" }) => {
+    const sizes = {
+    sm: "text-3xl",
+    md: "text-5xl",
+    lg: "text-7xl",
+    xl: "text-8xl",
+  };
     return (                
                 <div className="heading m-auto flex flex-col justify-center items-center">
 
-                    <h1 className={`text-7xl text-${size} 
+                    <h1 className={`${sizes[size]} 
                      flex flex-col font-medium mb-4 text-center`}>
 
                         {heading} <span className='bg-linear-to-b from-white via-blue-300 to-blue-600 bg-clip-text text-transparent'>{highlight}</span>

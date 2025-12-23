@@ -1,8 +1,13 @@
 import { RefreshCcw, Sun } from "lucide-react";
 import { CheckCircle, Sparkles, ShieldCheck } from "lucide-react";
 import { IndianRupee } from "lucide-react";
-
+import video from './../assets/video.mp4'
 import vite from './../assets/react.svg'
+import WaveSVG from "../assets/SVG/analytivs/analytivs-not-css.svg?react";
+import "../assets/SVG/analytivs/analytivs-styles.css";
+import Stat from "../assets/SVG/analytivs/design-stats-not-css.svg?react";
+import "../assets/SVG/analytivs/design-stats-styles.css";
+
 export const cardConfig = {
   innovation: {
     type:"row",
@@ -13,7 +18,8 @@ export const cardConfig = {
         "We build technology that amplifies human potential— not replaces it.",
       icon: <Sun className="text-white" />,
       align: "left",
-      image: vite
+      image: vite,
+      video: video
       },
       {
         heading: "Transparency & Trust",
@@ -21,7 +27,8 @@ export const cardConfig = {
           "No black boxes. We believe in explainable AI and clear accountability.",
         icon: <RefreshCcw className="text-white" />,
         align: "left",
-        image: vite
+        image: vite,
+        svg:<WaveSVG />
       },
       {
         heading: "Transparency & Trust",
@@ -29,7 +36,8 @@ export const cardConfig = {
           "No black boxes. We believe in explainable AI and clear accountability.",
         icon: <RefreshCcw className="text-white" />,
         align: "left",
-        image: vite
+        image: vite,
+        svg:<Stat />
       }
     ]
   },

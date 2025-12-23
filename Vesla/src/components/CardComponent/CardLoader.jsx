@@ -20,6 +20,8 @@ const CardLoader = ({ page }) => {
           icon={item.icon}
           align={item.align}
           width={item.width}
+          video={item.video}
+          svg={item.svg}
         />
       ))}
     </div>
