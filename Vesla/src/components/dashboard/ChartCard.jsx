@@ -24,7 +24,7 @@ export default function ChartCard({ title, data, dataKey, color }) {
               dot={false}
             />
             <XAxis dataKey="timestamp" hide />
-            <YAxis hide />
+            <YAxis  />
             <Tooltip />
           </LineChart>
         </ResponsiveContainer>
