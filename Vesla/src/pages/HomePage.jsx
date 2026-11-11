@@ -34,30 +34,30 @@ const HomePage = () => {
     return (
         <>  
             <section ref={bgRef} 
-            className='flex flex-col justify-center items-center pb-20 pt-72 '
+            className='flex min-h-[100svh] flex-col items-center justify-center px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32'
             style={{
                 backgroundImage: `url(${bgImg})`,
             }}>
 
-                <Heading heading="Welcome to Vesla" highlight="The Future of Water Monitoring" subtitle="Empowering healthcare with AI-driven solutions for better patient outcomes and operational efficiency."  size="lg" />
+                <Heading heading="Welcome to Vesla" highlight="Water monitoring made clear" subtitle="Follow water sensor readings over time, spot changes, and see the latest measurements together in one dashboard."  size="lg" />
 
-                <div className='py-10'>
-                    <GradientButton text="Get Started" />
+                <div className='py-8 sm:py-10'>
+                    <GradientButton text="Get started" to="/shop" variant="secondary" />
                 </div>
 
             </section>
 
             <section className='pt-20 flex flex-col justify-center items-center min-h-screen bg-[radial-gradient(ellipse_at_top,rgba(29,185,255,0.15),rgba(0,0,0,1))] '>
 
-                <Heading heading="Welcome to Vesla" highlight="The Future of Water Monitoring" subtitle="Empowering healthcare with AI-driven solutions for better patient outcomes and operational efficiency." size="md"/>
+                <Heading heading="Welcome to Vesla" highlight="Understand your water readings" subtitle="Vesla connects sensor measurements with a clear history of how water conditions change." size="md"/>
 
-                <div className="Container mt-20 flex flex-col gap-8 justify-center items-center min-h-screen w-max max-w-full">
+                <div className="Container mt-12 flex min-h-screen w-full max-w-6xl flex-col items-center justify-center gap-8 px-4 sm:mt-20 sm:px-6">
                     <CardLoader page="innovation" />
                     
                     <CardLoader page="ethics" />
                 </div>
                 <div className='pt-8'>
-                    <GradientButton text="Get Started" />
+                    <GradientButton text="Get started" to="/shop" variant="secondary" />
                 </div>
             </section>
             <section className='bg-[radial-gradient(ellipse_at_bottom,rgba(29,185,255,0.22),rgba(0,0,0,1))]'></section>

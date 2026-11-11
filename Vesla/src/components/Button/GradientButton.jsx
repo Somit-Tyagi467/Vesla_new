@@ -1,66 +1,28 @@
-import gsap from "gsap";
-import React, { useRef } from "react";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const GradientButton = ({ text }) => {
-  const iconRef = useRef(null);
-  const buttonRef = useRef(null);
-
-  const handleEnter = () => {
-    gsap.to(iconRef.current, { rotate: 180, duration: 0.5, ease: "power3.out" });
-    gsap.to(buttonRef.current, {
-      backgroundPosition: "0% 0%", // reveal full gradient
-      duration: 0.8,
-      backgroundColor: "linear-gradient(to right, #6366f1, #a855f7, #3b82f6)",
-      ease: "power3.out",
-    });
-  };
-
-  const handleLeave = () => {
-    gsap.to(iconRef.current, { rotate: 0, duration: 0.5, ease: "power3.out" });
-    gsap.to(buttonRef.current, {
-      backgroundPosition: "100% 0%", // hide gradient
-      
-      duration: 0.8,
-      ease: "power3.inOut",
-    });
-  };
+export default function GradientButton({ text, to = "/login", variant = "primary" }) {
+  const secondary = variant === "secondary";
 
   return (
-    <button
-      ref={buttonRef}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      className="
-        w-48 
-        rounded-full 
-        flex items-center gap-3 py-0.5 px-0.5
-        text-white font-medium shadow-xl
-        transition-all duration-300
-        bg-black
-        cursor-pointer
-      "
-      style={{
-        backgroundImage: "linear-gradient(to right, #6366f1, #a855f7, #3b82f6)",
-        backgroundSize: "200% 100%",
-        backgroundPosition: "100% 0%",
-      }}
+    <Link
+      to={to}
+      className={`group relative inline-flex h-14 w-48 shrink-0 items-center justify-center overflow-hidden rounded-full border px-12 text-lg font-semibold transition-[filter,border-color] duration-500 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300 ${
+        secondary
+          ? "border-white/15 bg-white/[0.04]"
+          : "border-transparent bg-gradient-to-r from-sky-300 via-indigo-200 to-violet-300 shadow-lg shadow-blue-950/30"
+      }`}
     >
-      
-      {/* Icon */}
       <span
-        ref={iconRef}
-        className="
-          w-12 h-12 bg-white rounded-full 
-          text-black flex items-center justify-center
-        "
-      >
-        <ChevronRight size={38} />
+        aria-hidden="true"
+        className={`animated-cta-fill absolute inset-0 rounded-full bg-gradient-to-r from-sky-300 via-indigo-200 to-violet-300 ${secondary ? "" : "is-visible"}`}
+      />
+      <span className={`animated-cta-label relative z-10 whitespace-nowrap ${secondary ? "text-white transition-colors duration-500 group-hover:text-slate-950" : "text-slate-950"}`}>
+        {text}
       </span>
-
-      {text}
-    </button>
+      <span aria-hidden="true" className="animated-cta-circle absolute top-1 z-20 grid h-12 w-12 place-items-center rounded-full bg-white text-slate-950 shadow-md">
+        <ChevronRight size={25} className="animated-cta-chevron" />
+      </span>
+    </Link>
   );
-};
-
-export default GradientButton;
+}

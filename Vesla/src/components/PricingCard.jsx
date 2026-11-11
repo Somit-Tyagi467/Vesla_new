@@ -1,9 +1,11 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function PricingCard({
   name,
   price,
+  billing = "monthly",
   description,
   features,
   gradient,
@@ -26,7 +28,7 @@ export default function PricingCard({
       {/* Price */}
       <div className="text-5xl font-bold mb-6">
         ₹{price}
-        <span className="text-lg font-medium text-gray-400">/mo</span>
+        <span className="text-lg font-medium text-gray-400">/{billing === "monthly" ? "mo" : "yr"}</span>
       </div>
 
       {/* Features */}
@@ -40,7 +42,8 @@ export default function PricingCard({
       </div>
 
       {/* CTA Button */}
-      <button
+      <Link
+        to="/shop"
         className="
           w-full py-3 rounded-full border border-white/20
           bg-white/5 hover:bg-white/10 transition
@@ -49,7 +52,7 @@ export default function PricingCard({
       >
         Get Started
         <ChevronRight size={18} />
-      </button>
+      </Link>
     </div>
   );
 }

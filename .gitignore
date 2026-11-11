@@ -1,0 +1,15 @@
+node_modules/
+dist/
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.py[cod]
+backend/database/*.sqlite3
+backend/vesla_ml/data/raw/
+backend/vesla_ml/artifacts/
+backend/.pip-cache/
+backend/.pip-tmp/
+.env
+.env.*
+!.env.example
+hardware/ESP32HelloWorld/include/secrets.h

@@ -6,18 +6,15 @@ export default function PricingLoader() {
   const [billing, setBilling] = useState("monthly");
 
   return (
-    <div className="flex flex-col items-center gap-10 w-full">
-      
-      {/* Billing Toggle */}
-      <div className="
-        flex items-center p-1 rounded-full
-        bg-white/5 border border-white/10 backdrop-blur-xl
-      ">
+    <div className="flex w-full flex-col items-center gap-10">
+      <div className="flex items-center rounded-full border border-white/10 bg-white/[0.05] p-1 backdrop-blur-xl">
         <button
+          type="button"
+          aria-pressed={billing === "monthly"}
           onClick={() => setBilling("monthly")}
-          className={`px-6 py-2 rounded-full transition text-lg font-medium
+          className={`rounded-full px-6 py-2 text-base font-medium transition md:text-lg
             ${billing === "monthly"
-              ? "bg-linear-to-r from-blue-500 to-purple-500 text-white"
+              ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white"
               : "text-gray-300"
             }`}
         >
@@ -25,10 +22,12 @@ export default function PricingLoader() {
         </button>
 
         <button
+          type="button"
+          aria-pressed={billing === "yearly"}
           onClick={() => setBilling("yearly")}
-          className={`px-6 py-2 rounded-full transition text-lg font-medium
+          className={`rounded-full px-6 py-2 text-base font-medium transition md:text-lg
             ${billing === "yearly"
-              ? "bg-linear-to-r from-blue-500 to-purple-500 text-white"
+              ? "bg-gradient-to-r from-blue-500 to-violet-500 text-white"
               : "text-gray-300"
             }`}
         >
@@ -36,20 +35,21 @@ export default function PricingLoader() {
         </button>
       </div>
 
-      {/* Pricing Cards */}
-      <div className="flex gap-6 justify-center w-[95%]">
-        {pricingConfig.plans.map((plan, i) => (
+      <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {pricingConfig.plans.map((plan) => (
           <PricingCard
-            key={i}
+            key={plan.name}
             name={plan.name}
             description={plan.description}
             price={billing === "monthly" ? plan.priceMonthly : plan.priceYearly}
+            billing={billing}
             features={plan.features}
             gradient={plan.gradient}
             width={plan.width}
           />
         ))}
       </div>
+      <p className="-mt-5 text-center text-xs text-slate-500">Prices shown in Indian rupees. Yearly prices are billed annually.</p>
     </div>
   );
 }

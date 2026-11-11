@@ -1,4 +1,39 @@
 @import "tailwindcss";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+main {
+  min-width: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  h1 {
+    overflow-wrap: anywhere;
+  }
+}
 /* bg-[radial-gradient(circle,#6d28d9_0%,#0000_70%)]
     blur-2xl opacity-60
     mx-auto bg-[radial-gradient(circle,#ffffff,#3b82f6,#000)] */
@@ -9,4 +44,69 @@
 
 .animate-fadeIn {
   animation: fadeIn 2s ease-out forwards;
+}
+
+.animated-cta-fill {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animated-cta-fill.is-visible {
+  transform: scaleX(1);
+}
+
+.group:hover .animated-cta-fill:not(.is-visible),
+.group:focus-visible .animated-cta-fill:not(.is-visible) {
+  transform: scaleX(1);
+}
+
+.animated-cta-circle {
+  left: 0.25rem;
+  transition: left 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .animated-cta-circle,
+.group:focus-visible .animated-cta-circle {
+  left: calc(100% - 3.25rem);
+}
+
+.animated-cta-chevron {
+  transform: none;
+}
+
+.animated-cta-label {
+  transform: translateX(1rem);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .animated-cta-label,
+.group:focus-visible .animated-cta-label {
+  transform: translateX(-1.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-cta-fill,
+  .animated-cta-circle,
+  .animated-cta-chevron,
+  .animated-cta-label {
+    transition: none;
+  }
+}
+
+@keyframes pricing-arrow-rollback {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  42% { transform: translateY(7px) rotate(0deg); }
+  62% { transform: translateY(7px) rotate(18deg); }
+  82% { transform: translateY(0) rotate(-5deg); }
+}
+
+.animate-pricing-arrow {
+  animation: pricing-arrow-rollback 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pricing-arrow {
+    animation: none;
+  }
 }

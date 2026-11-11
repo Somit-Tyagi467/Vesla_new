@@ -82,19 +82,19 @@
   ],
 
   "trends": {
-    "turbidity": "Increasing — may indicate sediment buildup",
+    "turbidity": "Increasing — water may look cloudier",
     "pressure": "Stable",
     "ph": "Slight fluctuations but within normal range",
-    "tds": "Increasing — possible contamination"
+    "tds": "Increasing — check for changes in the water source or filter"
   },
 
   "maintenanceIndex": {
     "pipelineHealth": 72,
     "tankHealth": 88,
     "recommendedActions": [
-      "Check filtration unit — high turbidity spike",
+      "Check the filter if cloudiness continues to rise",
       "Inspect pipeline for potential leakage",
-      "Test TDS levels for contamination",
+      "Check the water source and filter if TDS stays high",
       "Perform backwashing of main tank filters"
     ]
   }

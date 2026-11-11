@@ -1,0 +1,37 @@
+from django.urls import path
+from .views import (
+    DemoDataSettingsView,
+    LatestBatchAnalysisView,
+    LatestReadingView,
+    ReadingListCreateView,
+    StoreOrderCreateView,
+    csrf_cookie,
+    claim_device,
+    create_device_pairing_code,
+    list_devices,
+    platform_login,
+    platform_logout,
+    platform_register,
+    platform_session,
+    platform_shuffle_avatar,
+    ProfileAlertSettingsView,
+)
+
+urlpatterns = [
+    path("auth/csrf/", csrf_cookie, name="auth-csrf"),
+    path("auth/login/", platform_login, name="platform-login"),
+    path("auth/register/", platform_register, name="platform-register"),
+    path("auth/session/", platform_session, name="platform-session"),
+    path("auth/profile/avatar/shuffle/", platform_shuffle_avatar, name="platform-avatar-shuffle"),
+    path("auth/profile/alerts/", ProfileAlertSettingsView.as_view(), name="profile-alert-settings"),
+    path("devices/", list_devices, name="device-list"),
+    path("devices/pairing-code/", create_device_pairing_code, name="device-pairing-code"),
+    path("devices/claim/", claim_device, name="device-claim"),
+    path("orders/mine/", StoreOrderCreateView.as_view(), name="store-order-list"),
+    path("orders/", StoreOrderCreateView.as_view(), name="store-order-create"),
+    path("auth/logout/", platform_logout, name="platform-logout"),
+    path("admin/demo-settings/", DemoDataSettingsView.as_view(), name="admin-demo-settings"),
+    path("readings/latest/", LatestReadingView.as_view(), name="latest-reading"),
+    path("readings/", ReadingListCreateView.as_view(), name="reading-list-create"),
+    path("analysis/latest/", LatestBatchAnalysisView.as_view(), name="latest-batch-analysis"),
+]
